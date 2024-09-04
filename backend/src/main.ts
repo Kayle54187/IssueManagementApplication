@@ -14,6 +14,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const logger = new Logger('bootstrap');
 
+  app.enableCors();
+
   const swaggerConfig = new DocumentBuilder()
     .setTitle('Task / Issue Management Application')
     .setDescription('The Task / Issue Management API description')
