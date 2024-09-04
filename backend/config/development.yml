@@ -1,0 +1,14 @@
+server:
+  port: 3000
+
+db:
+  type: 'postgres'
+  port: 5432
+  database: 'taskmanagement'
+  username: 'kayle'
+  password: 'freeatlast'
+  synchronize: true
+
+jwt:
+  expiresIn: 3600
+  secret: 'topSecret51'
