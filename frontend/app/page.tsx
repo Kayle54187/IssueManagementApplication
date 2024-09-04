@@ -19,19 +19,9 @@ export default function Home() {
 		string
 	>({
 		onSuccess: () => {
-			toast({
-				title: "Issue Added",
-				description: "Issue was Added Successfully",
-			});
 			queryClient.invalidateQueries({ queryKey: ["issues"] });
 		},
-		onError: () => {
-			toast({
-				title: "Adding Issue Failed",
-				description: "Error occurred while adding Issue",
-				variant: "destructive",
-			});
-		},
+		onError: () => {},
 		mutationFn: (data) => {
 			return baseInstance
 				.delete(`/issues/${data}/delete`)
@@ -64,6 +54,7 @@ export default function Home() {
 							</h2>
 							<p className="m-0 text-sm">{issue.description}</p>
 							<button
+								className="bg-red-500 my-2"
 								onClick={() => deleteIssue(issue.id)}
 								disabled={isPending}
 							>
